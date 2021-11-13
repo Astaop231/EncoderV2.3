@@ -36,7 +36,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Usern
 #from bot.helper_funcs.utils import(
 #  delete_downloads
 #)
-os.system("wget https://telegra.ph/file/09327e86d071191950dce.jpg -O thumb.jpg")
+#os.system("wget https://telegra.ph/file/09327e86d071191950dce.jpg -O thumb.jpg")
 
 #LOGS_CHANNEL = -1001283278354
 CURRENT_PROCESSES = {}
@@ -349,7 +349,7 @@ async def incoming_compress_message_f(update):
         caption=caption,
         force_document=True,
         #duration=duration,
-        thumb="thumb.jpg",
+        #thumb="thumb.jpg",
         reply_to_message_id=update.message_id,
         progress=progress_for_pyrogram,
         progress_args=(
