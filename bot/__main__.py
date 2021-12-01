@@ -116,7 +116,7 @@ if __name__ == "__main__" :
     async def rmt(app, message):
         if message.from_user.id in AUTH_USERS:
             a = message.text.split(" ", maxsplit=1)[1]
-            hey = f"First watermark size updated : {a}"
+            hey = f"Second watermark size updated : {a}"
             font_two.insert(0, f"{a}")
             await message.reply_text(hey)
         else:
