@@ -27,6 +27,8 @@ from bot import (
     preset,
     codec,
     watermark,
+    font_one,
+    font_two,
     pid_list
 )
 
@@ -49,8 +51,9 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     preset.append("veryfast")
     audio_b.append("40k")
     #watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=20:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=Animes-Encoded"')
-    #watermark.append(""" """)
-    file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" -filter_complex "ass=Input.ass" -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y'
+    font_one.append("25")
+    font_two.append("33")
+    file_genertor_command = f"""ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" -filter_complex "drawtext=fontfile=njnaruto.ttf:fontsize={font_one[0]}:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text='Animes-Encoded':enable='between(t,0,15)':alpha='if(lt(t,14)\,1\,if(lt(t\,15)\,(1-(t-14))/1\,0))', drawtext=fontfile=njnaruto.ttf:text='\|\| Download From The Original Place https\://t.me/Animes_Encoded \|\| And For Animes Request https\://t.me/Anime_Hub_Group':bordercolor=black@0.50:borderw=5:fontcolor=white:fontsize={font_two[0]}:x=w-((2*w-200)*(t-615)/60):y=lh+0.5:enable='between(t, 615,680)':alpha='if(lt(t,679)\,1\,if(lt(t\,680)\,(1-(t-679))/1\,0))'[out1]"  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y"""
  #Done !!
     COMPRESSION_START_TIME = time.time()
     process = await asyncio.create_subprocess_shell(
