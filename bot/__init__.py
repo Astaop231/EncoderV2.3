@@ -16,15 +16,15 @@ from bot.config import Config
 
 
 # dont think ne dumb (c) @Animes_Encoded
-AUTH_USERS = [1666551439]
+AUTH_USERS = [1666551439] # add another id with , like [26272, 172727] , dont remove my id
 # again lol (c) @Animes_Encoded 
 
 SESSION_NAME = "WtfMan"
-TG_BOT_TOKEN = "2104254299:AAF6v9cW2bKG9cqQNnqAo5ljxWZ7Px7yyiY" 
-APP_ID = 3281305
-API_HASH = "a9e62ec83fe3c22379e3e19195c8b3f6"
+TG_BOT_TOKEN = " "  
+APP_ID = 
+API_HASH = " " 
 
-LOG_CHANNEL = "ffmpeg_group"  # make sure to us this 
+LOG_CHANNEL = " "   # make sure to us this 
 DOWNLOAD_LOCATION = "/app/downloads"
 FREE_USER_MAX_FILE_SIZE = 2097152000
 MAX_MESSAGE_LENGTH = 4096
@@ -32,7 +32,7 @@ FINISHED_PROGRESS_STR = "▓"
 UN_FINISHED_PROGRESS_STR = "░"
 BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = "Log.txt"
-BOT_USERNAME = "vanitas_encoderBot"
+BOT_USERNAME = " "
 UPDATES_CHANNEL = "botlogas"
 data = []
 crf = []
