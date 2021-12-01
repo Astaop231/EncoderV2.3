@@ -17,7 +17,9 @@ from bot import (
     audio_b,
     preset,
     codec,
-    watermark 
+    watermark,
+    font_one,
+    font_two
 )
 from bot.helper_funcs.utils import add_task, on_task_complete
 from pyrogram import Client, filters
@@ -44,6 +46,8 @@ codec.append("libx265")
 resolution.append("854x480")
 preset.append("veryfast")
 audio_b.append("40k")
+font_one.append("25")
+font_two.append("30")
 # 🤣
 
 
@@ -93,17 +97,36 @@ if __name__ == "__main__" :
             await message.reply_text(OUT)
         else:
             await message.reply_text("Error")
-    #@app.on_message(filters.incoming & filters.command(["nothumb", f"nothumb@{BOT_USERNAME}"]))
-    #async def rmt(app, message):
+    @app.on_message(filters.incoming & filters.command(["font_one", f"font_one@{BOT_USERNAME}"]))
+    async def rmt(app, message):
+        if message.from_user.id in AUTH_USERS:
+            a = message.text.split(" ", maxsplit=1)[1]
+            hey = f"First watermark size updated : {a}"
+            font_one.insert(0, f"{a}")
+            await message.reply_text(hey)
+        else:
+            await message.reply_text("Hey kid! who gave u rights to use admeme tasks ??")
+            
         #if message.from_user.id in AUTH_USERS:
             #os.system('rm thumb.jpg')
            # F = "Ok! I will be uploading files with no thumbnail"
             #await message.reply(F)
-                 
+    
+    @app.on_message(filters.incoming & filters.command(["font_two", f"font_two@{BOT_USERNAME}"]))
+    async def rmt(app, message):
+        if message.from_user.id in AUTH_USERS:
+            a = message.text.split(" ", maxsplit=1)[1]
+            hey = f"First watermark size updated : {a}"
+            font_two.insert(0, f"{a}")
+            await message.reply_text(hey)
+        else:
+            # Updated to V2.3
+            await message.reply_text("Hey kid! who gave u rights to use admeme tasks ??")
+            
     @app.on_message(filters.incoming & filters.command(["settings", f"settings@{BOT_USERNAME}"]))
     async def settings(app, message):
         if message.from_user.id in AUTH_USERS:
-            await message.reply_text(f"<b>The current settings will be added to your video file :</b>\n\n<b>Codec</b> : {codec[0]} \n<b>Crf</b> : {crf[0]} \n<b>Resolution</b> : {resolution[0]} \n<b>Preset</b> : {preset[0]} \n<b>Audio Bitrates</b> : {audio_b[0]}")
+            await message.reply_text(f"<b>The current settings will be added to your video file :</b>\n\n<b>Codec</b> : {codec[0]} \n<b>Crf</b> : {crf[0]} \n<b>Resolution</b> : {resolution[0]} \n<b>Preset</b> : {preset[0]} \n<b>Audio Bitrates</b> : {audio_b[0]}\n<b>Watermark_size(1)</b> : {font_one[0]}\n<b>Watermark_size(2)</b> : {font_two[0]}")
             
             
                
